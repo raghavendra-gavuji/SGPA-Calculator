@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 char sub[20][20];  // variable to store names of subjects
 int points[20];    // variable to store points scored in subjects
 float credits[20]; // variable to store credits allocated for subjects
 int n;             // variable to store no. of subjects
 
-void result(float credit_points[n])
+void result(float credit_points[n]) // function to calculate the result
 {
-    int count = 0; // variable to count backlogs
+    int count = 0; // variable to count Dues
     float sum = 0 /*variable to store sum of credit points*/;
     float csum = 0 /*varialbe to store sum of credits*/, sgpa /*variable to store result*/;
     for (int i = 0; i < n; i++)
@@ -16,9 +17,10 @@ void result(float credit_points[n])
     }
     sgpa = sum / csum;
     printf("\n");
+    // Due counter
     for (int i = 0; i < n; i++)
     {
-        if (credit_points[i] == 0)
+        if (points[i] == 0)
         {
             printf("Due in '%s'\n", sub[i]);
             count++;
@@ -32,6 +34,10 @@ void result(float credit_points[n])
     if (count == 0)
         printf("\n*****CONGRATULATIONS*****\n\n");
 }
+
+/*credit points are calculated by multiplying
+the credits allocated to each subject
+by the points scored in that subject*/
 
 void logic() // this function calculates the credit points
 {
@@ -73,5 +79,13 @@ int main()
     printf("\n");
     // after taking all the inputs the function 'logic' is called
     logic();
+    
+    // forcing the output to stay on screen
+    char escape;
+    printf("\n--------------------------------------------/n");
+    printf("Press 'Q' to exit...");
+    escape = getchar();
+    while (escape != 'q')
+        escape = getchar();
     return 0;
 }
