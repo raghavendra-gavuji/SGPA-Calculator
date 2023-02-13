@@ -51,6 +51,7 @@ void logic() // this function calculates the credit points
 int main()
 {
     int i;
+    char yesno;
     printf("\n\n*******SGPA Calculator*******\n\n");
     // users enter the no. of subjects they have this semester
     printf("Enter no. of subjects: ");
@@ -71,18 +72,28 @@ int main()
     }
     printf("\n");
     // users enter the points they scored in each subject
-    for (i = 0; i < n; i++)
+    do
     {
-        printf("Enter points scored in %s: ", sub[i]);
-        scanf("%d", &points[i]);
-    }
-    printf("\n");
-    // after taking all the inputs the function 'logic' is called
-    logic();
-    
+        for (i = 0; i < n; i++)
+        {
+            printf("Enter points scored in %s: ", sub[i]);
+            scanf("%d", &points[i]);
+        }
+        printf("\n");
+        // after taking all the inputs the function 'logic' is called
+        logic();
+
+        printf("Do you want to re-check? : ");
+        scanf(" %c", &yesno);
+        if (yesno == 'y')
+            system("cls");
+            printf("\n\n*******SGPA Calculator*******\n\n");
+
+    } while (yesno == 'y');
+
     // forcing the output to stay on screen
     char escape;
-    printf("\n--------------------------------------------/n");
+    printf("\n--------------------------------------------\n");
     printf("Press 'Q' to exit...");
     escape = getchar();
     while (escape != 'q')
