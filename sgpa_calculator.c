@@ -83,7 +83,7 @@ int main()
         // after taking all the inputs the function 'logic' is called
         logic();
 
-        printf("Do you want to re-check? : ");
+        printf("Do you want to re-check? [y/n]: ");
         scanf(" %c", &yesno);
         if (yesno == 'y')
             system("cls");
@@ -94,7 +94,7 @@ int main()
     // forcing the output to stay on screen
     char escape;
     printf("\n--------------------------------------------\n");
-    printf("Press 'Q' to exit...");
+    printf("Press 'q' to exit...");
     escape = getchar();
     while (escape != 'q')
         escape = getchar();
