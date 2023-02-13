@@ -86,15 +86,17 @@ int main()
         printf("Do you want to re-check? [y/n]: ");
         scanf(" %c", &yesno);
         if (yesno == 'y')
+        {
             system("cls");
             printf("\n\n*******SGPA Calculator*******\n\n");
+        }
 
     } while (yesno == 'y');
 
     // forcing the output to stay on screen
     char escape;
     printf("\n--------------------------------------------\n");
-    printf("Press 'q' to exit...");
+    printf("Press 'q' to exit...  ");
     escape = getchar();
     while (escape != 'q')
         escape = getchar();
